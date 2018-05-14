@@ -32,6 +32,7 @@ $ docker-compose up
 ドットは適宜使用する。
 
 1. 編集を加える前にまずブランチをきる。
+`any_branch_name`は各自適切なブランチ名に変えて使うこと。
 
 ```terminal
 $ git checkout -b any_branch_name
@@ -51,10 +52,12 @@ $ git status
 ```
 
 2. 編集したものをコミットしてプッシュするには次のようにする
+前の項1. で決めたブランチ名に`any_branch_name`を変えて使うこと
+
 ```terminal
 $ git add .
 $ git commit -m '加えた編集について一行程度の簡潔な説明'
-$ git push
+$ git push --set-upstream origin any_branch_name
 ```
 
 3. masterに変更が行われたら、その変更をローカルに反映する
