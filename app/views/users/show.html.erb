@@ -7,3 +7,20 @@
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
+
+<br>
+
+<div>
+  <% if @user.foods.any? %>
+    <h3>Foods (<%= @user.foods.count %>)</h3>
+    <ol class="foods">
+      <%= render @foods %>
+    </ol>
+    <%= will_paginate @foods %>
+  <% else %>
+    <h3>Foods (Empty)</h3>
+    <p>
+    Let's store some foods! :)
+    </p>
+  <% end %>
+</div>
