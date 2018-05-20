@@ -1,0 +1,22 @@
+<% provide(title: 'New Food') %>
+<h3>New Food form</h3>
+
+<%= link_to 'Back', user_foods_path %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <!-- form -->
+    <%= form_for(@food) do |f| %>
+      <!-- error message -->
+
+      <%= hidden_field_tag :user_id, @user.id %>
+
+      <%= f.label :foodname %>
+      <%= f.text_field :foodname, class: 'form-control' %>
+
+      <!-- amount -->
+
+      <%= f.submit 'Add New Food', class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

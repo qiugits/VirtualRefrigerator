@@ -1,0 +1,16 @@
+<%= link_to 'New Food', new_user_food_path %>
+
+<div>
+  <% if @user.foods.any? %>
+    <h3>Foods (<%= @user.foods.count %>)</h3>
+    <ol class="foods">
+      <%= render @foods %>
+    </ol>
+    <%= will_paginate @foods %>
+  <% else %>
+    <h3>Foods (Empty)</h3>
+    <p>
+    Let's store some foods! :)
+    </p>
+  <% end %>
+</div>
