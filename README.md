@@ -64,8 +64,8 @@ $ git push --set-upstream origin any_branch_name
 masterへのマージは基本的には@qiugitsが行う
 
 ```terminal
-$ git fetch
-$ git merge FETCH_HEAD
+$ git checkout master
+$ git pull
 ```
 その後1.に戻るというサイクル
 

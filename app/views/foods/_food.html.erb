@@ -1,0 +1,9 @@
+<li id="food-<%= food.id %>">
+  <span class="food"><%= food.foodname %></span>
+  <span><%= food.kind_id %></span>
+  <span class="timestamp"><br>
+    <small>Created <%= time_ago_in_words(food.created_at) %> ago.</small>
+  </span>
+  | <span><%= link_to 'Edit', edit_food_path(food) %></span>
+  | <span><%= link_to 'Delete', food, method: :delete %></span>
+</li>

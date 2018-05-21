@@ -1,0 +1,10 @@
+<h3>Edit Food</h3>
+
+<%= @food.foodname %>
+
+<%= form_for(@food) do |f| %>
+  <%= f.label :amount %>
+  <%= f.text_field :amount, placeholder: @food.amount %>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
