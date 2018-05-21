@@ -25,13 +25,21 @@ class FoodsController < ApplicationController
   end
 
   def update
+    @food = Food.find(params[:id])
+    if @food.update_attributes(food_params)
+      redirect_to user_foods_path(@food.user_id)
+    else
+      redirect_to root_url
+    end
   end
 
   def destroy
+    @food = Food.find(params[:id]).destroy
+    redirect_back(fallback_location: root_url)
   end
 
   private
     def food_params
-      params.require(:food).permit(:foodname)
+      params.require(:food).permit(:foodname, :amount)
     end
 end
