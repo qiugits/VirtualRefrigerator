@@ -14,3 +14,10 @@ user = User.first
     kind_id: kind.id
   )
 end
+
+
+require 'csv'
+CSV.foreach(Rails.root + 'db/nutr_data_utf8.csv') do |row|
+	FoodKind.create!(:kindname => row[0], :protein => row[1], :lipd => row[2], :carbon => row[3],:vitamin => row[4], :minerals => row[5])
+end
+
