@@ -15,10 +15,7 @@
 <div>
   <% if @user.foods.any? %>
     <h3>Foods (<%= @user.foods.count %>)</h3>
-    <ol class="foods">
-      <%= render @foods %>
-    </ol>
-    <%= will_paginate @foods %>
+    <h4>Stats: <%= @user.foods.sum(:id) %></h4>
   <% else %>
     <h3>Foods (Empty)</h3>
     <p>
