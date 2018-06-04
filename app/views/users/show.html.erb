@@ -15,7 +15,14 @@
 <div>
   <% if @user.foods.any? %>
     <h3>Foods (<%= @user.foods.count %>)</h3>
-    <h4>Stats: <%= @user.foods.sum(:id) %></h4>
+    <h4>Stats:</h4>
+    <ul>
+      <li><%= "%.2f" % @user.foods.sum(:protein) %></li>
+      <li><%= "%.2f" % @user.foods.sum(:lipd) %></li>
+      <li><%= "%.2f" % @user.foods.sum(:carbon) %></li>
+      <li><%= "%.2f" % @user.foods.sum(:vitamin) %></li>
+      <li><%= "%.2f" % @user.foods.sum(:minerals) %></li>
+    </ul>
   <% else %>
     <h3>Foods (Empty)</h3>
     <p>
