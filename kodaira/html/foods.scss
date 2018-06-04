@@ -1,0 +1,40 @@
+// Place all the styles related to the Foods controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.food_image{
+	position: relative;
+	//border: 1px solid #000;
+	height: 150px;
+	border-radius: 50%;
+	width: 150px;
+	//overflow: hidden;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+}
+
+.food_image img{
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	width: 150px;
+	height: auto;
+}
+
+.food_image p.amount {
+	position: absolute;
+	color: black;
+	top: 100px;
+	right: 10px;
+	font-size: 150%;
+}
+
+.food_image p.data{
+	position: absolute;
+	color: black;
+	top: 10px;
+	left: 10px;
+	font-size: 150%;
+}
