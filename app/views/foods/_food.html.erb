@@ -2,12 +2,11 @@
   <span class="food"><%= food.foodname %></span>
 
   <div class="food_image">
-    <%= image_tag 'food_kinds/%04d.jpg' % food.kind_id %>
+    <%= link_to image_tag('food_kinds/%04d.jpg' % food.kind_id), edit_food_path(food) %>
 
     <p class="amount">×<%= food.amount %></p>
 
     <p class="data"><%= food.created_at.strftime("%m/%d")%></p>
   </div>
-  <span><%= link_to 'Edit', edit_food_path(food) %></span>
-  | <span><%= link_to 'Delete', food, method: :delete %></span>
+  <%#= link_to 'Delete', food, method: :delete %>
 </li>

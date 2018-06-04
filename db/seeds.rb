@@ -16,7 +16,7 @@ end
 
 50.times do
   kind = FoodKind.offset(rand(FoodKind.count)).first
-  amount = rand(5)
+  amount = rand(1..5)
   user.foods.create!(
     foodname: kind.kindname,
     kind_id: kind.id,
