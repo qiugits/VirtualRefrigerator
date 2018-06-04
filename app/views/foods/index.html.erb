@@ -1,12 +1,19 @@
-<%= link_to 'New Food', new_user_food_path %>
+<div class="status">
+  <h1><%= @user.name %>/h1>
+  <div class="icon">
+    <%= link_to image_tag('/Users/chr/Desktop/open_refrige.png'), user_path(@user) %>
+  </div>
+</div>
+<br>
 
-<div>
-  <% if @user.foods.any? %>
+<div class="container">
+ <% if @user.foods.any? %>
     <h3>Foods (<%= @user.foods.count %>)</h3>
+      <%= link_to 'New Food', new_user_food_path %>
     <ol class="foods">
       <%= render @foods %>
     </ol>
-    <%= will_paginate @foods %>
+      <%= will_paginate @foods %>
   <% else %>
     <h3>Foods (Empty)</h3>
     <p>
@@ -14,3 +21,43 @@
     </p>
   <% end %>
 </div>
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 3px;
+}
+.status {
+  width: 350px;
+  height: 500px;
+
+}
+.icon {
+    margin: 40px 40px;
+    padding: 40px 40px;
+}
+
+.container {
+    width: 650px;
+    height: 500px;
+    background: #add8eb ;
+    border: solid 3px #add8eb ;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.foods{
+  flex-grow: 1;
+  flex-basis: 0;
+  overflow-y: scroll;
+  text-align: center;
+}
+
+li {
+    border: solid 1px #FFFFFF;
+    display: inline;
+    margin: 5px;
+    float: left;
+    list-style-type: none;
+}
+</style>

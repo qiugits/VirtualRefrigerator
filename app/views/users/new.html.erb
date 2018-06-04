@@ -1,5 +1,18 @@
-<h1>New User</h1>
+<div class="status">
+    <h1>New User</h1>
 
-<%= render 'form', user: @user %>
+    <%= render 'form', user: @user %>
 
-<%= link_to 'Back', users_path %>
+    <%= link_to 'Back', users_path %>
+</div>
+
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 3px;
+}
+.status {
+  width: 350px;
+  height: 500px;
+  float: left;
+}

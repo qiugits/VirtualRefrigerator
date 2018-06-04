@@ -1,6 +1,32 @@
-<h1>Editing User</h1>
+<div class="status">
+    <div class="forms">
+        <h1>Editing User</h1>
 
-<%= render 'form', user: @user %>
+        <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+        <%= link_to 'Show', @user %> |
+        <%= link_to 'Back', users_path %>
+    </div>
+</div>
+
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 3px;
+}
+.status {
+  width: 35%;
+  height: 500px;
+  border: solid 3px #add8eb ;
+  border-radius: 10px;
+  float: left;
+  position: relative;
+}
+.forms {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  line-height: 25px;
+  text-align: center;
+}
+</style>

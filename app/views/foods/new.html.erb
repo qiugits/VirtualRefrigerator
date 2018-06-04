@@ -1,22 +1,57 @@
-<% provide(title: 'New Food') %>
-<h3>New Food form</h3>
-
-<%= link_to 'Back', user_foods_path %>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <!-- form -->
-    <%= form_for(@food) do |f| %>
-      <!-- error message -->
-
-      <%= hidden_field_tag :user_id, @user.id %>
-
-      <%= f.label :foodname %>
-      <%= f.text_field :foodname, class: 'form-control' %>
-
-      <!-- amount -->
-
-      <%= f.submit 'Add New Food', class: 'btn btn-primary' %>
-    <% end %>
+<div class="status">
+  <h1><%= @user.name %>の冷蔵庫</h1>
+  <div class='opening_icon'>
+    <%= link_to image_tag('/Users/chr/Desktop/open_refrige.png'), user_path(@user) %>
   </div>
 </div>
+
+<div class="container"> 
+  <% provide(title: 'New Food') %>
+  <h3>New Food form</h3>
+
+  <%= link_to 'Back', user_foods_path %>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <!-- form -->
+      <%= form_for(@food) do |f| %>
+        <!-- error message -->
+
+        <%= hidden_field_tag :user_id, @user.id %>
+
+        <%= f.label :foodname %>
+        <%= f.text_field :foodname, class: 'form-control' %>
+
+        <!-- amount -->
+
+        <%= f.submit 'Add New Food', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+* {
+    margin: 0;
+    padding: 3px;
+}
+.status {
+  width: 350px;
+  height: 500px;
+  float: left;
+}
+.icon {
+    margin: 40px 40px;
+    padding: 40px 40px;
+}
+
+.container {
+    width: 650px;
+    height: 500px;
+    background: #add8eb ;
+    border: solid 3px #add8eb ;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    float: right;
+}
