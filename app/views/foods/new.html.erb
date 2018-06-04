@@ -12,53 +12,27 @@
 
     <%= link_to 'Back', user_foods_path %>
 
-<!-- Ajax -->
-<input type=form id="form" placeholder="Input food name to search" style="width= 250px;"/>
-<!-- Ajax Script -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<script type="text/javascript">
-  $(document).on('turbolinks:load', function(){
-    $(document).on('keyup', '#form', function(e){
-      e.preventDefault();
-      var input = $.trim($(this).val());
-      $.ajax({
-        url: '/foods/search',
-        type: 'GET',
-        data: ('keyword=' + input),
-        processData: false,
-        contentType: false,
-        dataType: 'json'
-      })
-        .done(function(data){
-          $('#result').find('li').remove();
-          $(data).each(function(i, kind){
-            $('#result').append(`<li><input type="radio" value="${kind.id}" name="food[kind_id]" id="food_kind_id_${kind.id}">${kind.kindname}</li>`
-            )
-          });
-        })
-    });
-  });
-</script>
+    <!-- Ajax -->
+    <input type=form id="form" placeholder="Input food name to search" style="width= 250px;"/>
 
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <!-- form -->
-    <%= form_for(@food) do |f| %>
-      <!-- error message -->
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <!-- form -->
+        <%= form_for(@food) do |f| %>
+          <!-- error message -->
 
           <%= hidden_field_tag :user_id, @user.id %>
 
-      <ul id="result">
-        <li><%= f.radio_button :kind_id, 1 %>食材の種類を検索してください</li>
-      </ul>
+          <ul id="result">
+            <li><%= f.radio_button :kind_id, 1 %>食材の種類を検索してください</li>
+          </ul>
 
-      <%= f.label :foodname %>
-      <%= f.text_field :foodname, class: 'form-control' %>
+          <%= f.label :foodname %>
+          <%= f.text_field :foodname, class: 'form-control' %>
 
-      <!-- amount -->
-      <%= f.label :amount %>
-      <%= f.text_field :amount, class: 'form-control' %>
+          <!-- amount -->
+          <%= f.label :amount %>
+          <%= f.text_field :amount, class: 'form-control' %>
 
           <%= f.submit 'Add New Food', class: 'btn btn-primary' %>
         <% end %>
@@ -66,10 +40,35 @@
     </div>
   </div>
 </div>
+<!-- Ajax Script -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).on('turbolinks:load', function(){
+  $(document).on('keyup', '#form', function(e){
+  e.preventDefault();
+  var input = $.trim($(this).val());
+  $.ajax({
+  url: '/foods/search',
+    type: 'GET',
+    data: ('keyword=' + input),
+    processData: false,
+    contentType: false,
+    dataType: 'json'
+})
+    .done(function(data){
+  $('#result').find('li').remove();
+  $(data).each(function(i, kind){
+  $('#result').append(`<li><input type="radio" value="${kind.id}" name="food[kind_id]" id="food_kind_id_${kind.id}">${kind.kindname}</li>`
+)
+});
+})
+});
+});
+</script>
 <style type="text/css">
 * {
-    margin: 0;
-    padding: 3px;
+  margin: 0;
+  padding: 3px;
 }
 .frame {
   display: flex;
@@ -86,29 +85,28 @@
     display: flex;
     float: left;
   }
-    .user {
-      text-align: center;
-      position: absolute;
-      top: 30%;
-      left: 50%;
-      -webkit-transform: translateY(-50%) translateX(-50%);
-      padding: 0px 0px 0px 0px;
-      line-height: 25px;
-    }
-    .icon {
-      margin: 20px 0px;
-    }
-  .container {
-      position: relative;
-      top: 10px;
-      width: 60%;
-      height: 500px;
-      background: #add8eb ;
-      border: solid 3px #add8eb ;
-      border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      float: right;
+  .user {
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    -webkit-transform: translateY(-50%) translateX(-50%);
+    padding: 0px 0px 0px 0px;
+    line-height: 25px;
   }
-
+  .icon {
+    margin: 20px 0px;
+  }
+  .container {
+    position: relative;
+    top: 10px;
+    width: 60%;
+    height: 500px;
+    background: #add8eb ;
+    border: solid 3px #add8eb ;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    float: right;
+  }
 </style>
