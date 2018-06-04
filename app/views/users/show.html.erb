@@ -1,86 +1,88 @@
 <p id="notice"><%= notice %></p>
-<div class="status">
-  <div class="user">
-    <h1><%= @user.name %>の<br>冷蔵庫</h1>
-    <div class="icon">
-      <%= link_to image_tag('/Users/chr/Desktop/closed_refrige.png'), user_path(@user) %>
+<div class="frame">
+  <div class="status">
+    <div class="user">
+      <h1><%= @user.name %><br>の冷蔵庫</h1>
+      <div class="icon">
+        <%= link_to image_tag('/Users/chr/Desktop/closed_refrige.png'), user_path(@user) %>
+      </div>
+      <%= link_to 'Edit User', edit_user_path(@user) %> |
+      <%= link_to 'Back', users_path %>
     </div>
-    <%= link_to 'Edit User', edit_user_path(@user) %> |
-    <%= link_to 'Back', users_path %>
+  </div>
+
+  <div class="container">
+    <% if @user.foods.any? %>
+      <h3>Foods (<%= @user.foods.count %>)</h3>
+      <ol class="foods">
+        <%= render @foods %>
+      </ol>
+      <%= will_paginate @foods %>
+    <% else %>
+      <h3>Foods (Empty)</h3>
+      <p>
+      Let's store some foods! :)
+      </p>
+    <% end %>
   </div>
 </div>
-
-<br>
-
-<div class="container">
-  <% if @user.foods.any? %>
-    <h3>Foods (<%= @user.foods.count %>)</h3>
-    <ol class="foods">
-      <%= render @foods %>
-    </ol>
-    <%= will_paginate @foods %>
-  <% else %>
-    <h3>Foods (Empty)</h3>
-    <p>
-    Let's store some foods! :)
-    </p>
-  <% end %>
-</div>
-
 <style type="text/css">
 * {
     margin: 0;
     padding: 3px;
 }
-.status {
-  position: relative;
-  top: 10px;
-  width: 35%;
-  height: 500px;
-  border: solid 3px #add8eb ;
-  border-radius: 10px;
+.frame {
   display: flex;
-  float: left;
+  align-items: flex-start;
+  justify-content: space-between;
 }
-.user {
-  text-align: center;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  -webkit-transform: translateY(-50%) translateX(-50%);
-  padding: 0px 0px 0px 0px;
-  line-height: 25px;
-}
-.icon {
-    margin: 40px 40px;
-    padding: 40px 40px;
-}
-
-.container {
+  .status {
     position: relative;
     top: 10px;
-    width: 60%;
+    width: 35%;
     height: 500px;
-    background: #add8eb ;
     border: solid 3px #add8eb ;
     border-radius: 10px;
     display: flex;
-    flex-direction: column;
-    float: right;
-}
-
-.foods{
-  flex-grow: 1;
-  flex-basis: 0;
-  overflow-y: scroll;
-  text-align: center;
-}
-
-li {
-    border: solid 1px #FFFFFF;
-    display: inline;
-    margin: 5px;
     float: left;
-    list-style-type: none;
-}
+  }
+    .user {
+      text-align: center;
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      -webkit-transform: translateY(-50%) translateX(-50%);
+      padding: 0px 0px 0px 0px;
+      line-height: 25px;
+    }
+    .icon {
+      margin: 20px 0px;
+    }
+  .container {
+      position: relative;
+      top: 10px;
+      width: 60%;
+      height: 500px;
+      background: #add8eb ;
+      border: solid 3px #add8eb ;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      float: right;
+  }
+
+    .foods{
+      flex-grow: 1;
+      flex-basis: 0;
+      overflow-y: scroll;
+      text-align: center;
+    }
+
+      li {
+          border: solid 1px #FFFFFF;
+          display: inline;
+          margin: 5px;
+          float: left;
+          list-style-type: none;
+      }
 </style>
