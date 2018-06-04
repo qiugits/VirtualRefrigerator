@@ -8,7 +8,7 @@ require 'csv'
 require 'fileutils'
 
 
-FoodKind.offset(1354).find_each do |kind|
+FoodKind.offset(1166).find_each do |kind|
 
   q = CGI.escape(kind.kindname)
 
@@ -24,7 +24,7 @@ FoodKind.offset(1354).find_each do |kind|
   image_urls.each do |img|
     if img[-3..-1].downcase == 'jpg'
       begin
-        File.open(Rails.root + "food_images/%04d.jpg" % kind.id, 'wb') do |f|
+        File.open(Rails.root + "app/assets/images/%04d.jpg" % kind.id, 'wb') do |f|
           f.write(open(URI.escape(img, "[]")).read)
         end
         printf("Saved %s to %04d.jpg", kind.kindname, kind.id)

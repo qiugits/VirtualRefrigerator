@@ -1,6 +1,14 @@
 <li id="food-<%= food.id %>">
   <span class="food"><%= food.foodname %></span>
   <span><%= food.kind_id %></span>
+
+  <div class="food_image">
+  <%= image_tag '%04d.jpg' % food.kind_id %>
+
+  <p class="amount">×<%= food.amount %></p>
+
+  <p class="data"><%= food.created_at.strftime("%m/%d")%></p>
+  </div>
   <span class="timestamp"><br>
     <small>Created <%= time_ago_in_words(food.created_at) %> ago.</small>
   </span>
