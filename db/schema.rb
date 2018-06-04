@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_21_042824) do
+ActiveRecord::Schema.define(version: 2018_05_28_082419) do
 
   create_table "food_kinds", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "kindname"
     t.integer "nutrition_a"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "food_kind"
+    t.float "protein"
+    t.float "lipd"
+    t.float "carbon"
+    t.float "vitamin"
+    t.float "minerals"
   end
 
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -26,6 +32,11 @@ ActiveRecord::Schema.define(version: 2018_05_21_042824) do
     t.datetime "updated_at", null: false
     t.integer "amount"
     t.integer "kind_id"
+    t.float "protein"
+    t.float "lipd"
+    t.float "carbon"
+    t.float "vitamin"
+    t.float "minerals"
     t.index ["user_id", "created_at"], name: "index_foods_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_foods_on_user_id"
   end

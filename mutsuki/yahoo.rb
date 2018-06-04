@@ -21,16 +21,15 @@ while i < s.size
 
 q = CGI.escape(s[i])
 
-#uri = URI.escape("https://www.bing.com/images/search?q=#{q}")
-#uri = URI.escape("https://search.yahoo.co.jp/image/search?n=60&p=#{q}&search.x=1")
-url = "https://www.bing.com/images/search?q=#{q}"
+url = URI("https://search.yahoo.co.jp/image/search?n=60&p=#{q}&search.x=1")
+#url = "https://www.bing.com/images/search?q=#{q}"
 res = open(url)
 doc = Nokogiri.HTML(res)
 
 
 
 image_urls = Array.new
-doc.css('div#b_content a.thumb').each do |a|
+doc.css('a[target="imagewin"]').each do |a|
   image_urls.push(a[:href])
 end
 p image_urls

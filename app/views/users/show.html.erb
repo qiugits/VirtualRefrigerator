@@ -11,13 +11,19 @@
     </div>
   </div>
 
-  <div class="container">
+  <%= link_to 'Open Refrige', user_foods_path(@user) %>
+  
+  <div>
     <% if @user.foods.any? %>
       <h3>Foods (<%= @user.foods.count %>)</h3>
-      <ol class="foods">
-        <%= render @foods %>
-      </ol>
-      <%= will_paginate @foods %>
+      <h4>Stats:</h4>
+      <ul>
+        <li><%= "%.2f" % @user.foods.sum(:protein) %></li>
+        <li><%= "%.2f" % @user.foods.sum(:lipd) %></li>
+        <li><%= "%.2f" % @user.foods.sum(:carbon) %></li>
+        <li><%= "%.2f" % @user.foods.sum(:vitamin) %></li>
+        <li><%= "%.2f" % @user.foods.sum(:minerals) %></li>
+      </ul>
     <% else %>
       <h3>Foods (Empty)</h3>
       <p>
@@ -77,12 +83,11 @@
       overflow-y: scroll;
       text-align: center;
     }
-
-      li {
-          border: solid 1px #FFFFFF;
-          display: inline;
-          margin: 5px;
-          float: left;
-          list-style-type: none;
-      }
+    li {
+        border: solid 1px #FFFFFF;
+        display: inline;
+        margin: 5px;
+        float: left;
+        list-style-type: none;
+    }
 </style>

@@ -1,3 +1,10 @@
+<%= link_to 'Close Regrige', user_path(@user) %>
+
+<br>
+
+<%= link_to 'New Food', new_user_food_path %>
+  
+
 <div class="frame">
   <div class="status">
     <h1><%= @user.name %>/h1>
@@ -6,7 +13,6 @@
     </div>
   </div>
   <br>
-
   <div class="container">
   <% if @user.foods.any? %>
       <h3>Foods (<%= @user.foods.count %>)</h3>
