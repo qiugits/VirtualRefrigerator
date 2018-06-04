@@ -5,6 +5,14 @@ class FoodsController < ApplicationController
     @foods = @user.foods.paginate(page: params[:page])
   end
 
+  def search
+    @kinds = FoodKind.where('kindname LIKE(?)', "%#{params[:keyword]}%")
+    #respond_to do |format|
+    #  format.json { render 'index', json: @users }
+    #end
+    render json: @kinds
+  end
+
   def new
     @user = User.find(params[:user_id])
     @food = Food.new
@@ -47,6 +55,6 @@ class FoodsController < ApplicationController
 
   private
     def food_params
-      params.require(:food).permit(:foodname, :amount)
+      params.require(:food).permit(:foodname, :kind_id, :amount)
     end
 end
