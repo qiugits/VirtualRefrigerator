@@ -7,8 +7,14 @@ require 'cgi'
 require 'csv'
 require 'fileutils'
 
+$directory = Rails.root + 'app/assets/images/food_kinds'
+already_done = Dir.entries($directory)
 
-FoodKind.offset(1166).find_each do |kind|
+FoodKind.find_each do |kind|
+  if already_done.include?('%04d.jpg' % kind.id)
+    print '.'
+    next
+  end
 
   q = CGI.escape(kind.kindname)
 
@@ -24,10 +30,10 @@ FoodKind.offset(1166).find_each do |kind|
   image_urls.each do |img|
     if img[-3..-1].downcase == 'jpg'
       begin
-        File.open(Rails.root + "app/assets/images/%04d.jpg" % kind.id, 'wb') do |f|
+        File.open($directory + "%04d.jpg" % kind.id, 'wb') do |f|
           f.write(open(URI.escape(img, "[]")).read)
         end
-        printf("Saved %s to %04d.jpg", kind.kindname, kind.id)
+        print("Saved %s to %04d.jpg" % [kind.kindname, kind.id])
         break
       rescue => e
         print("Failured for some reason")
