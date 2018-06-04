@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// Food image
 .food_image{
 	position: relative;
 	//border: 1px solid #000;
@@ -35,4 +36,85 @@
 	top: 10px;
 	left: 10px;
 	font-size: 150%;
+}
+
+
+// Chihiro
+* {
+  margin: 0;
+  padding: 3px;
+}
+.status {
+  width: 350px;
+  height: 500px;
+  border: solid 3px #add8eb ;
+  float: left;
+}
+.status {
+  position: relative;
+  top: 10px;
+  width: 35%;
+  height: 500px;
+  border: solid 3px #add8eb ;
+  border-radius: 10px;
+  display: flex;
+  float: left;
+}
+.icon {
+  margin: 20px 20px;
+}
+.icon {
+  margin: 20px 0px;
+}
+
+.container {
+  width: 650px;
+  height: 500px;
+  background: #add8eb ;
+  border: solid 3px #add8eb ;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
+.container {
+  position: relative;
+  top: 10px;
+  width: 60%;
+  height: 500px;
+  background: #add8eb ;
+  border: solid 3px #add8eb ;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
+.frame {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.user {
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -webkit-transform: translateY(-50%) translateX(-50%);
+  padding: 0px 0px 0px 0px;
+  line-height: 25px;
+}
+
+.foods{
+  flex-grow: 1;
+  flex-basis: 0;
+  overflow-y: scroll;
+  text-align: center;
+}
+
+li {
+  border: solid 1px #FFFFFF;
+  display: inline;
+  margin: 5px;
+  float: left;
+  list-style-type: none;
 }
