@@ -1,10 +1,47 @@
-<h3>Edit Food</h3>
+<div class="status">
+  <h1><%= @user.name %>の冷蔵庫</h1>
+    <div class='opening_icon'>
+      <%= link_to image_tag('/Users/chr/Desktop/open_refrige.png'), user_path(@user) %>
+    </div>
+</div>
+<br>
 
-<%= @food.foodname %>
+<div class='container'>
+  <h3>Edit Food</h3>
 
-<%= form_for(@food) do |f| %>
-  <%= f.label :amount %>
-  <%= f.text_field :amount, placeholder: @food.amount %>
+  <%= @food.foodname %>
 
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>
+  <%= form_for(@food) do |f| %>
+    <%= f.label :amount %>
+    <%= f.text_field :amount, placeholder: @food.amount %>
+
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>
+
+<style type="text/css">
+* {
+  margin: 0;
+  padding: 3px;
+}
+.status {
+  width: 350px;
+  height: 500px;
+  border: solid 3px #add8eb ;
+  float: left;
+}
+.icon {
+  margin: 20px 20px;
+}
+
+.container {
+  width: 650px;
+  height: 500px;
+  background: #add8eb ;
+  border: solid 3px #add8eb ;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  float: right;
+}
+</style>
