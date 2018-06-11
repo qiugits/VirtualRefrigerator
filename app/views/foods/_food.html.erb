@@ -1,9 +1,12 @@
 <li id="food-<%= food.id %>">
   <span class="food"><%= food.foodname %></span>
-  <span><%= food.kind_id %></span>
-  <span class="timestamp"><br>
-    <small>Created <%= time_ago_in_words(food.created_at) %> ago.</small>
-  </span>
-  | <span><%= link_to 'Edit', edit_food_path(food) %></span>
-  | <span><%= link_to 'Delete', food, method: :delete %></span>
+
+  <div class="food_image">
+    <%= link_to image_tag('food_kinds/%04d.jpg' % food.kind_id), edit_food_path(food) %>
+
+    <p class="amount">×<%= food.amount %></p>
+
+    <p class="data"><%= food.created_at.strftime("%m/%d")%></p>
+  </div>
+  <%#= link_to 'Delete', food, method: :delete %>
 </li>
