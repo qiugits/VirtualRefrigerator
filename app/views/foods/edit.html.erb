@@ -1,3 +1,4 @@
+<link rel="stylesheet" type="text/css" href="application.css">
 <div class="status">
   <h1><%= @user.name %>の冷蔵庫</h1>
     <div class='opening_icon'>
@@ -19,29 +20,3 @@
   <% end %>
 </div>
 
-<style type="text/css">
-* {
-  margin: 0;
-  padding: 3px;
-}
-.status {
-  width: 350px;
-  height: 500px;
-  border: solid 3px #add8eb ;
-  float: left;
-}
-.icon {
-  margin: 20px 20px;
-}
-
-.container {
-  width: 650px;
-  height: 500px;
-  background: #add8eb ;
-  border: solid 3px #add8eb ;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  float: right;
-}
-</style>
