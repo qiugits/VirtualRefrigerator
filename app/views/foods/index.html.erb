@@ -1,3 +1,5 @@
+<link rel="stylesheet" type="text/css" href="application.css">
+
 <%= link_to 'Close Regrige', user_path(@user) %>
 
 <br>
@@ -5,7 +7,7 @@
 <%= link_to 'New Food', new_user_food_path %>
   
 
-<div class="frame">
+<div class="status_frame">
   <div class="status">
     <h1><%= @user.name %>の冷蔵庫</h1>
     <div class="icon">
