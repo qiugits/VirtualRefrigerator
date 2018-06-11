@@ -26,11 +26,11 @@ ActiveRecord::Schema.define(version: 2018_05_28_082419) do
   end
 
   create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "foodname"
+    t.string "foodname", default: ""
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "amount"
+    t.float "amount", default: 1.0
     t.integer "kind_id"
     t.float "protein"
     t.float "lipd"

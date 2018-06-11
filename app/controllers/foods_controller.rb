@@ -22,9 +22,9 @@ class FoodsController < ApplicationController
     @user = User.find(params[:user_id])
     @food = @user.foods.build(food_params)
     if @food.save
-      redirect_back(fallback_location: root_url)
+      redirect_to user_foods_path(@user)
     else
-      render 'food#new'
+      redirect_back(fallback_location: user_foods_path(@user))
     end
   end
 
