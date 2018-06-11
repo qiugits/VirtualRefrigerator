@@ -1,6 +1,4 @@
 <li id="food-<%= food.id %>">
-  <span class="food"><%= food.foodname %></span>
-
   <div class="food_image">
     <%= link_to image_tag('food_kinds/%04d.jpg' % food.kind_id), edit_food_path(food) %>
 
@@ -8,5 +6,6 @@
 
     <p class="data"><%= food.created_at.strftime("%m/%d")%></p>
   </div>
+  <span class="food"><%= truncate(food.foodname, length: 8, omission: "…") %></span>
   <%#= link_to 'Delete', food, method: :delete %>
 </li>
