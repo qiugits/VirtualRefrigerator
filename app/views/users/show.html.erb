@@ -32,3 +32,12 @@
     <% end %>
   </div>
 </div>
+
+<%= column_chart ({
+  "タンパク質": "%.2f" % @user.foods.sum(:protein),
+  "脂質": "%.2f" % @user.foods.sum(:lipd),
+  "炭水化物": "%.2f" % @user.foods.sum(:carbon),
+  "ビタミン": "%.2f" % @user.foods.sum(:vitamin),
+  "ミネラル": "%.2f" % @user.foods.sum(:minerals)}),
+   colors: ["red"],xtitle: "五大栄養素", ytitle: "栄養量"
+ %>
