@@ -6,9 +6,8 @@
 .food_image{
 	position: relative;
 	//border: 1px solid #000;
-	height: 150px;
+	height: 100px;
 	border-radius: 50%;
-	width: 150px;
 	//overflow: hidden;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
@@ -18,8 +17,6 @@
 	border-radius: 50%;
 	-webkit-border-radius: 50%;
 	-moz-border-radius: 50%;
-	width: 150px;
-	height: auto;
 }
 
 .food_image p.amount {
@@ -67,28 +64,6 @@
   margin: 20px 0px;
 }
 
-.container {
-  width: 650px;
-  height: 500px;
-  background: #add8eb ;
-  border: solid 3px #add8eb ;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  float: right;
-}
-.container {
-  position: relative;
-  top: 10px;
-  width: 60%;
-  height: 500px;
-  background: #add8eb ;
-  border: solid 3px #add8eb ;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  float: right;
-}
 .frame {
   display: flex;
   align-items: flex-start;
@@ -117,4 +92,42 @@ li {
   margin: 5px;
   float: left;
   list-style-type: none;
+}
+
+//qiugits
+html, body {
+  background: #eee;
+  height: 100%;
+}
+.container {
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+.flex-justify-center {
+    justify-content: center;
+}
+.flex-justify-between {
+    justify-content: space-between;
+}
+.flex-justify-around {
+    justify-content: space-around;
+}
+.flex-align-center {
+    align-items: center;
+}
+.flex-align-stretch {
+    align-items: stretch;
+}
+
+.food-img {
+  width: 100px;
 }

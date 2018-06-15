@@ -5,22 +5,17 @@
 <%= link_to 'New Food', new_user_food_path %>
   
 
-<div class="status_frame">
-  <div class="status">
-    <h1><%= @user.name %>の冷蔵庫</h1>
-    <div class="icon">
-      <%= link_to image_tag('open_refrige.png'), user_path(@user) %>
-    </div>
-  </div>
-  <br>
-  <div class="container">
-  <% if @user.foods.any? %>
+<div class="">
+  <h1><%= @user.name %>の冷蔵庫</h1>
+  <%#= link_to image_tag('open_refrige.png'), user_path(@user) %>
+  <div class="">
+    <% if @user.foods.any? %>
       <h3>Foods (<%= @user.foods.count %>)</h3>
-        <%= link_to 'New Food', new_user_food_path %>
+      <%= link_to 'New Food', new_user_food_path %>
       <ol class="foods">
         <%= render @foods %>
       </ol>
-        <%= will_paginate @foods %>
+      <%= will_paginate @foods %>
     <% else %>
       <h3>Foods (Empty)</h3>
       <p>

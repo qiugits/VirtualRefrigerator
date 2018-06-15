@@ -1,6 +1,6 @@
 <li id="food-<%= food.id %>">
   <div class="food_image">
-    <%= link_to image_tag('food_kinds/%04d.jpg' % food.kind_id), edit_food_path(food) %>
+    <%= link_to image_tag('food_kinds/%04d.jpg' % food.kind_id, class: "food-img"), edit_food_path(food) %>
 
     <p class="amount">×<%= food.amount %></p>
 
