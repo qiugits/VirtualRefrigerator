@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+<div class="frame">
+  <div class="status">
+    <div class="user">
+      <h1><%= @user.name %><br>の冷蔵庫</h1>
+      <div class="icon">
+        <%= link_to image_tag('closed_refrige.png'), user_path(@user) %>
+      </div>
+      <%= link_to 'Edit User', edit_user_path(@user) %> |
+      <%= link_to 'Back', users_path %>
+    </div>
+  </div>
+
+  <%= link_to 'Open Refrige', user_foods_path(@user) %>
+
+  <div>
+    <% if @user.foods.any? %>
+      <h3>Foods (<%= @user.foods.count %>)</h3>
+      <h4>Stats:
+      </h4>
+      <ul>
+        <li><%= "%.2f" % @user.foods.sum(:protein) %></li>
+        <li><%= "%.2f" % @user.foods.sum(:lipd) %></li>
+        <li><%= "%.2f" % @user.foods.sum(:carbon) %></li>
+        <li><%= "%.2f" % @user.foods.sum(:vitamin) %></li>
+        <li><%= "%.2f" % @user.foods.sum(:minerals) %></li>
+      </ul>
+    <% else %>
+      <h3>Foods (Empty)</h3>
+      <p>
+      Let's store some foods! :)
+      </p>
+    <% end %>
+  </div>
+</div>
+
+<%= column_chart ({
+  "タンパク質": "%.2f" % @user.foods.sum(:protein),
+  "脂質": "%.2f" % @user.foods.sum(:lipd),
+  "炭水化物": "%.2f" % @user.foods.sum(:carbon),
+  "ビタミン": "%.2f" % @user.foods.sum(:vitamin),
+  "ミネラル": "%.2f" % @user.foods.sum(:minerals)}),
+   colors: ["red"],xtitle: "五大栄養素", ytitle: "栄養量",
+   stacked: true
+ %>
+
+<%= column_chart ({
+  "タンパク質": "%.2f" % @norm[0],
+  "脂質": "%.2f" % @norm[1],
+  "炭水化物": "%.2f" % @norm[2],
+  "ビタミン": "%.2f" % @norm[3],
+  "ミネラル": "%.2f" % @norm[4],
+  }) %>
