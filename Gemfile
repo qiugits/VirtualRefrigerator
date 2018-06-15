@@ -7,6 +7,7 @@ ruby '2.3.3'
 # ======
 
 gem 'chartkick'
+gem 'bcrypt'
 
 
 gem 'will_paginate', '3.1.6'

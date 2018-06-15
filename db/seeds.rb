@@ -1,4 +1,4 @@
-User.create!(name: "Ikuko")
+User.create!(name: "Ikuko", email: "ikuko@example.com", password: "foobar")
 user = User.first
 
 
