@@ -12,10 +12,10 @@
   </head>
 
   <body>
-    <div class="container flex-column bg-white">
+    <div class="wrapper container flex-column bg-white">
 
       <!-- Header -->
-      <div class="header">
+      <div class="header flex-row flex-align-center bg-black">
         <% if logged_in? %>
           <%= link_to 'Home', root_path %>
           <%= link_to current_user.name, edit_user_path(current_user) %> |
@@ -29,7 +29,7 @@
       <% end %>
 
       <!-- Main Content -->
-      <div class="">
+      <div class="flex-content">
         <%= yield %>
       </div>
 

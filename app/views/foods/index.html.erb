@@ -1,10 +1,7 @@
-<div class="">
-  <h1><%= @user.name %>の冷蔵庫</h1>
-  <%#= link_to image_tag('open_refrige.png'), user_path(@user) %>
-  <div class="">
-    <h3>Foods (<%= @user.foods.count %>)</h3>
-    <div class="foods-feed flex-row flex-wrap">
-      <%= render @foods %>
-    </div>
+<h1><%= @user.name %>の冷蔵庫</h1>
+<h3>Foods (<%= @user.foods.count %>)</h3>
+<div class="foods-feed">
+  <div class="flex-row flex-wrap">
+    <%= render @foods %>
   </div>
 </div>
