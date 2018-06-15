@@ -1,4 +1,3 @@
-<link rel="stylesheet" type="text/css" href="application.css">
 <div class="status_frame">
   <div class="status">
     <h1><%= @user.name %>の冷蔵庫</h1>
@@ -41,5 +40,30 @@
     </div>
   </div>
 </div>
-<style type="text/css">
 
+<!-- Ajax Script -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script type="text/javascript">
+  $(document).on('turbolinks:load', function(){
+    $(document).on('keyup', '#form', function(e){
+      e.preventDefault();
+      var input = $.trim($(this).val());
+      $.ajax({
+        url: '/foods/search',
+        type: 'GET',
+        data: ('keyword=' + input),
+        processData: false,
+        contentType: false,
+        dataType: 'json'
+      })
+        .done(function(data){
+          $('#result').find('li').remove();
+          $(data).each(function(i, kind){
+            $('#result').append(
+              `<li><input type="radio" value="${kind.id}" name="food[kind_id]" id="food_kind_id_${kind.id}">${kind.kindname}</li>`
+            )
+          });
+        })
+    });
+  });
+</script>
