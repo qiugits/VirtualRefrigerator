@@ -9,18 +9,11 @@
   <h1><%= @user.name %>の冷蔵庫</h1>
   <%#= link_to image_tag('open_refrige.png'), user_path(@user) %>
   <div class="">
-    <% if @user.foods.any? %>
-      <h3>Foods (<%= @user.foods.count %>)</h3>
-      <%= link_to 'New Food', new_user_food_path %>
-      <ol class="foods">
+    <h3>Foods (<%= @user.foods.count %>)</h3>
+    <%= link_to 'New Food', new_user_food_path %>
+      <div class="foods-feed flex-row flex-wrap">
         <%= render @foods %>
-      </ol>
+      </div>
       <%= will_paginate @foods %>
-    <% else %>
-      <h3>Foods (Empty)</h3>
-      <p>
-      Let's store some foods! :)
-      </p>
-    <% end %>
   </div>
 </div>

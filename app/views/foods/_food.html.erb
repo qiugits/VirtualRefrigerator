@@ -1,11 +1,11 @@
-<li id="food-<%= food.id %>">
+<div class="food-block" id="food-<%= food.id %>">
   <div class="food_image">
     <%= link_to image_tag('food_kinds/%04d.jpg' % food.kind_id, class: "food-img"), edit_food_path(food) %>
 
-    <p class="amount">×<%= food.amount %></p>
+    <span class="amount">×<%= food.amount %></span>
 
-    <p class="data"><%= food.created_at.strftime("%m/%d")%></p>
+    <span class="data"><%= food.created_at.strftime("%m/%d")%></span>
   </div>
-  <span class="food"><%= truncate(food.foodname, length: 8, omission: "…") %></span>
+  <span class="food"><%= truncate(food.foodname, length: 6, omission: "…") %></span>
   <%#= link_to 'Delete', food, method: :delete %>
-</li>
+</div>

@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Myapp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,7 +12,7 @@
   </head>
 
   <body>
-    <div class="container flex-column">
+    <div class="container flex-column bg-white">
 
       <!-- Header -->
       <div class="header">
@@ -23,7 +24,10 @@
       </div>
 
       <!-- Footer -->
-      <div class="footer">
+      <div class="footer flex-row flex-justify-around flex-align-center bg-black">
+        <%= image_tag 'icons/foods.svg', id: "icon-foods" %>
+        <%= image_tag 'icons/plus.svg', id: "icon-plus" %>
+        <%= image_tag 'icons/stats.svg', id: "icon-stats" %>
       </div>
 
     </div>
