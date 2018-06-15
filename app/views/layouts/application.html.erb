@@ -17,7 +17,8 @@
       <!-- Header -->
       <div class="header">
         <% if logged_in? %>
-          <%= current_user.name %>
+          <%= link_to 'Home', root_path %>
+          <%= link_to current_user.name, edit_user_path(current_user) %> |
           <%= link_to 'Log out', logout_path, method: 'delete' %>
         <% end %>
       </div>
@@ -34,9 +35,11 @@
 
       <!-- Footer -->
       <div class="footer flex-row flex-justify-around flex-align-center bg-black">
-        <%= image_tag 'icons/foods.svg', id: "icon-foods" %>
-        <%= image_tag 'icons/plus.svg', id: "icon-plus" %>
-        <%= image_tag 'icons/stats.svg', id: "icon-stats" %>
+        <% if logged_in? %>
+          <%= link_to image_tag('icons/foods.svg', class: "footer-icon-btn", id: "icon-foods"), user_foods_path(current_user) %>
+          <%= link_to image_tag('icons/plus.svg', class: "footer-icon-btn", id: "icon-plus"), new_user_food_path(current_user) %>
+          <%= link_to image_tag('icons/stats.svg', class: "footer-icon-btn", id: "icon-stats"), user_path(current_user) %>
+        <% end %>
       </div>
 
     </div>

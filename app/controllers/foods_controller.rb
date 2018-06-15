@@ -2,7 +2,7 @@ class FoodsController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @foods = @user.foods.paginate(page: params[:page])
+    @foods = @user.foods.all
   end
 
   def search

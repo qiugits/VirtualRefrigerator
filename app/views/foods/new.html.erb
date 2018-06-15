@@ -1,12 +1,9 @@
 <div class="status_frame">
   <h1><%= @user.name %>の冷蔵庫</h1>
-  <%#= link_to image_tag('open_refrige.png'), user_path(@user) %>
 
   <div class="container">
     <% provide(title: 'New Food') %>
     <h3>New Food form</h3>
-
-    <%= link_to 'Back', user_foods_path %>
 
     <!-- Ajax -->
     <input type=form id="form" placeholder="Input food name to search" style="width= 250px;"/>
