@@ -7,6 +7,19 @@
 # 文字列を受け取って文字列を返す
 # foodの名前を受け取って、正規表現でいい感じの短い文字列にする
 def shorten(foodname)
+  if foodname =~ /（.*）/
+    foodname.gsub!(/（.*）/, "")
+  end
+  if
+    foodname =~ /＜.*＞/
+    foodname.gsub!(/＜.*＞/, "")
+  end
+  if foodname =~ /［.*］/
+    foodname.gsub!(/［.*］/, "")
+  end
+  if foodname =~ /^　.*/
+    foodname.gsub!(/^　*/, "")
+  end
   return foodname
 end
 
