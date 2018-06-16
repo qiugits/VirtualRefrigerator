@@ -1,24 +1,19 @@
-<div class="container">
-  <%= link_to 'Back', :back %>
+<h1><%= @user.name %>の冷蔵庫</h1>
 
-  <h1><%= @user.name %>の冷蔵庫</h1>
+<h3>Edit Food</h3>
 
-  <h3>Edit Food</h3>
-
-  <%= @food.foodname %>
-  <div class="food_image">
-    <%= image_tag('food_kinds/%04d.jpg' % @food.kind_id) %>
-  </div>
-
-  <p><%= @food.created_at.strftime("%m/%d")%></p>
-
-  <span><%= link_to 'Delete', @food, method: :delete %></span>
-
-  <%= form_for(@food) do |f| %>
-    <%= f.label :amount %>
-    <%= f.text_field :amount, placeholder: @food.amount %>
-
-    <%= f.submit "Submit", class: "btn btn-primary" %>
-  <% end %>
+<span><%= @food.foodname %></span>
+<div>
+  <%= image_tag('food_kinds/%04d.jpg' % @food.kind_id) %>
 </div>
 
+<span><%= @food.created_at.strftime("%m/%d")%></span>
+
+<span><%= link_to '全て取出す', @food, method: :delete %></span>
+
+<%= form_for(@food) do |f| %>
+  <%= f.label :amount %>
+  <%= f.text_field :amount, placeholder: @food.amount, class: "form-control" %>
+
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>

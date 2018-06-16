@@ -23,6 +23,8 @@
           <% if logged_in? %>
             <%= link_to current_user.name, edit_user_path(current_user) %>
             <%= link_to image_tag('icons/logout.svg', class: "header-icon-btn", id: "icon-logout"), logout_path, method: 'delete' %>
+          <% else %>
+            <%= link_to 'ログイン', login_path %>
           <% end %>
         </div>
       </div>
