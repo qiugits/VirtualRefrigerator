@@ -1,10 +1,9 @@
-<h1><%= @user.name %>の冷蔵庫</h1>
-<%#= image_tag('open_refrige.png') %>
-
-<div class='container'>
-  <h3>Edit Food</h3>
-
+<div class="container">
   <%= link_to 'Back', :back %>
+
+  <h1><%= @user.name %>の冷蔵庫</h1>
+
+  <h3>Edit Food</h3>
 
   <%= @food.foodname %>
   <div class="food_image">

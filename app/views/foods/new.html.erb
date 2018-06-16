@@ -1,44 +1,30 @@
-<div class="status_frame">
-  <h1><%= @user.name %>の冷蔵庫</h1>
+<h1><%= @user.name %>の冷蔵庫</h1>
+<h3>食べ物を入れる</h3>
 
-  <div class="container">
-    <% provide(title: 'New Food') %>
-    <h3>New Food form</h3>
+<!-- form -->
+<%= form_for(@food, html: {class: "flex-content-strech flex-column"}) do |f| %>
+  <%= hidden_field_tag :user_id, @user.id %>
+  <!-- error message -->
 
-    <!-- Ajax -->
-    <input type=form id="form" placeholder="Input food name to search" style="width= 250px;"/>
+  <!-- Ajax -->
+  <%= f.label :foodname, "食品名" %>
+  <%= f.text_field :foodname, class: 'form-control', id: "search-form" %>
 
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <!-- form -->
-        <%= form_for(@food) do |f| %>
-          <!-- error message -->
-
-          <%= hidden_field_tag :user_id, @user.id %>
-
-          <ul id="result">
-            <li><%= f.radio_button :kind_id, 1 %>食材の種類を検索してください</li>
-          </ul>
-
-          <%= f.label :foodname %>
-          <%= f.text_field :foodname, class: 'form-control' %>
-
-          <!-- amount -->
-          <%= f.label :amount %>
-          <%= f.text_field :amount, class: 'form-control' %>
-
-          <%= f.submit 'Add New Food', class: 'btn btn-primary' %>
-        <% end %>
-      </div>
-    </div>
+  <div id="result" class="flex-content-scroll">
   </div>
-</div>
+
+  <!-- amount -->
+  <%= f.label :amount, "数量" %>
+  <%= f.text_field :amount, class: 'form-control' %>
+
+  <%= f.submit '冷蔵庫に入れる', class: 'btn btn-primary' %>
+<% end %>
 
 <!-- Ajax Script -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script type="text/javascript">
-  $(document).on('turbolinks:load', function(){
-    $(document).on('keyup', '#form', function(e){
+$(document).on('turbolinks:load', function(){
+    $(document).on('keyup', '#search-form', function(e){
       e.preventDefault();
       var input = $.trim($(this).val());
       $.ajax({
@@ -50,10 +36,11 @@
         dataType: 'json'
       })
         .done(function(data){
-          $('#result').find('li').remove();
+          $('#result').find('input[type="radio"]').remove();
+          $('#result').find('label.label-radio').remove();
           $(data).each(function(i, kind){
             $('#result').append(
-              `<li><input type="radio" value="${kind.id}" name="food[kind_id]" id="food_kind_id_${kind.id}">${kind.kindname}</li>`
+              `<div><input type="radio" value="${kind.id}" name="food[kind_id]" id="food_kind_id_${kind.id}"><label for="food_kind_id_${kind.id}" class="label-radio">${kind.kindname}</label></div>`
             )
           });
         })

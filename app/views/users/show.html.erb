@@ -1,13 +1,7 @@
-<p id="notice"><%= notice %></p>
-<div class="user">
+<div class="container">
   <h1><%= @user.name %>の冷蔵庫</h1>
-  <%#= link_to image_tag('closed_refrige.png', :size => "20*20"), user_foods_path(@user) %>
-  <%#= link_to 'Edit User', edit_user_path(@user) %>
-  <%#= link_to 'Back', users_path %>
-</div>
-
-<div class="nutrition">
-    <h3>Foods (<%= @user.foods.count %>)</h3>
+  <h3>Foods (<%= @user.foods.count %>)</h3>
+  <div class="nutrition">
     <h4>Stats:</h4>
     <ul>
       <li>protein( <%= "%.2f" % @user.foods.sum(:protein) %> )</li>
@@ -16,8 +10,8 @@
       <li>vitamin( <%= "%.2f" % @user.foods.sum(:vitamin) %> )</li>
       <li>minerals( <%= "%.2f" % @user.foods.sum(:minerals) %> )</li>
     </ul>
+  </div>
 </div>
-<%#= link_to 'Open Refrige', user_foods_path(@user) %>
 
 <%#= column_chart ({
   "タンパク質": "%.2f" % @user.foods.sum(:protein),

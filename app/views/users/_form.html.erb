@@ -1,22 +1,23 @@
-<%= form_with(model: user, local: true) do |form| %>
+<%= form_with(model: user, local: true) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
+      <h2>エラー：</h2>
       <ul>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <%= f.label :email %>
+  <%= f.text_field :email, class: "form-control" %>
+
+  <%= f.label :password %>
+  <%= f.text_field :password, class: "form-control" %>
+
+  <%= f.submit '送信', class: "btn btn-primary" %>
 <% end %>

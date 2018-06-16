@@ -1,7 +1,10 @@
-<h1><%= @user.name %>の冷蔵庫</h1>
-<h3>Foods (<%= @user.foods.count %>)</h3>
-<div class="foods-feed">
-  <div class="flex-row flex-wrap">
+<div class="container">
+  <h1><%= @user.name %>の冷蔵庫</h1>
+  <h3>Foods (<%= @user.foods.count %>)</h3>
+</div>
+
+<div id="foods-feed" class="flex-content-scroll bg-blue card-m">
+  <div class="flex-row flex-wrap flex-justify-around pd-8">
     <%= render @foods %>
   </div>
 </div>

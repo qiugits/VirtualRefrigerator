@@ -12,15 +12,19 @@
   </head>
 
   <body>
-    <div class="wrapper container flex-column bg-white">
+    <div id="wrapper-container" class="flex-column bg-blue">
 
       <!-- Header -->
-      <div class="header flex-row flex-align-center bg-black">
-        <% if logged_in? %>
-          <%= link_to 'Home', root_path %>
-          <%= link_to current_user.name, edit_user_path(current_user) %> |
-          <%= link_to 'Log out', logout_path, method: 'delete' %>
-        <% end %>
+      <div id="header" class="flex-row flex-justify-between flex-align-center bg-white">
+        <div name="left menu" id="menu-left" class="flex-row">
+          <%= link_to 'VRegrige', root_path %>
+        </div>
+        <div name="right menu" id="menu-right" class="flex-row">
+          <% if logged_in? %>
+            <%= link_to current_user.name, edit_user_path(current_user) %>
+            <%= link_to image_tag('icons/logout.svg', class: "header-icon-btn", id: "icon-logout"), logout_path, method: 'delete' %>
+          <% end %>
+        </div>
       </div>
 
       <!-- Flash -->
@@ -29,16 +33,18 @@
       <% end %>
 
       <!-- Main Content -->
-      <div class="flex-content">
+      <div class="flex-content-strech flex-column bg-white card-l">
         <%= yield %>
       </div>
 
       <!-- Footer -->
-      <div class="footer flex-row flex-justify-around flex-align-center bg-black">
+      <div id="footer" class="flex-row flex-justify-around flex-align-center bg-blue">
         <% if logged_in? %>
           <%= link_to image_tag('icons/foods.svg', class: "footer-icon-btn", id: "icon-foods"), user_foods_path(current_user) %>
           <%= link_to image_tag('icons/plus.svg', class: "footer-icon-btn", id: "icon-plus"), new_user_food_path(current_user) %>
           <%= link_to image_tag('icons/stats.svg', class: "footer-icon-btn", id: "icon-stats"), user_path(current_user) %>
+        <% else %>
+          <%#= link_to '今すぐ始める', new_user_path %>
         <% end %>
       </div>
 
