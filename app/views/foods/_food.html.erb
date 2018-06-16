@@ -1,11 +1,17 @@
 <div class="food-block" id="food-<%= food.id %>">
-  <div class="food_image">
-    <%= link_to image_tag('food_kinds/%04d.jpg' % food.kind_id, class: "food-img"), edit_food_path(food) %>
+  <%= link_to(edit_food_path(food)) do %>
+    <div class="flex-column">
+      <div class="flex-row flex-justify-start">
+        <span class="food-tag food-date"><%= food.created_at.strftime("%m/%d")%></span>
+      </div>
 
-    <span class="amount">×<%= food.amount %></span>
+      <%= image_tag('food_kinds/%04d.jpg' % food.kind_id, class: "food-img") %>
 
-    <span class="data"><%= food.created_at.strftime("%m/%d")%></span>
-  </div>
-  <span class="food"><%= truncate(food.foodname, length: 6, omission: "…") %></span>
-  <%#= link_to 'Delete', food, method: :delete %>
+      <div class="flex-row flex-justify-end">
+        <span class="food-tag food-amount">×<%= food.amount %></span>
+      </div>
+    </div>
+    <span class="food"><%= truncate(food.foodname, length: 6, omission: "…") %></span>
+    <%#= link_to 'Delete', food, method: :delete %>
+  <% end %>
 </div>

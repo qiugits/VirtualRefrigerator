@@ -102,6 +102,10 @@ html, body {
   height: 100%;
   margin: 0;
 }
+a {
+  color: black;
+  text-decoration: none;
+}
 #wrapper-container {
   height: 100vh;
   max-width: 500px;
@@ -146,6 +150,12 @@ html, body {
 }
 .flex-justify-around {
     justify-content: space-around;
+}
+.flex-justify-start {
+    justify-content: flex-start;
+}
+.flex-justify-end {
+    justify-content: flex-end;
 }
 .flex-align-center {
     align-items: center;
@@ -199,6 +209,19 @@ html, body {
   border-radius: 50%;
   width: 100px;
   display: block;
+  margin-top: -1.5rem;
+  margin-bottom: -1.5rem;
+}
+.food-tag {
+  background-color: yellow;
+  border-radius: calc(1.5rem / 2);
+  padding-left: 0.3rem;
+  padding-right: 0.3rem;
+}
+.food-date {
+  z-index: 1;
+}
+.food-amount {
 }
 
 // Header
