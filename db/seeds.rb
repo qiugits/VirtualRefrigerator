@@ -5,12 +5,13 @@ user = User.first
 require 'csv'
 CSV.foreach(Rails.root + 'db/nutr_data_utf8.csv') do |row|
 	FoodKind.create!(
-    :kindname => row[0], 
-    :protein => row[1],
-    :lipd => row[2], 
-    :carbon => row[3],
-    :vitamin => row[4],
-    :minerals => row[5]
+    name: row[0].tr('ア-ン', 'あ-ん'),
+    kindname: row[0], 
+    protein: row[1],
+    lipd: row[2], 
+    carbon: row[3],
+    vitamin: row[4],
+    minerals: row[5]
   )
 end
 

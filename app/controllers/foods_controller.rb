@@ -6,7 +6,7 @@ class FoodsController < ApplicationController
   end
 
   def search
-    @kinds = FoodKind.where('kindname LIKE(?) ', "%#{params[:keyword]}%").limit(20)
+    @kinds = FoodKind.where('name LIKE(?) ', "%#{params[:keyword].tr('ア-ン', 'あ-ん')}%").limit(20)
     #respond_to do |format|
     #  format.json { render 'index', json: @users }
     #end

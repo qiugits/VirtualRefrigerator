@@ -11,13 +11,35 @@
       <li>minerals( <%= "%.2f" % @user.foods.sum(:minerals) %> )</li>
     </ul>
   </div>
+<% stats = @user.nutri_stats %>
+<div class="graph-cont">
+  <label for="stats-protein">プロテイン</label>
+  <div class="bar" id="stats-protein"><%= "%.2f" % (stats[:protein] / 7) %>日分</div>
+  <label for="stats-lipd">脂肪</label>
+  <div class="bar" id="stats-lipd"><%= "%.2f" % (stats[:lipd] / 7) %>日分</div>
+  <label for="stats-carbon">炭水化物</label>
+  <div class="bar" id="stats-carbon"><%= "%.2f" % (stats[:carbon] / 7) %>日分</div>
+  <label for="stats-vitamin">ビタミン</label>
+  <div class="bar" id="stats-vitamin"><%= "%.2f" % (stats[:vitamin] / 7) %>日分</div>
+  <label for="stats-minerals">ミネラル</label>
+  <div class="bar" id="stats-minerals"><%= "%.2f" % (stats[:minerals] / 7) %>日分</div>
+</div>
 </div>
 
-<%#= column_chart ({
-  "タンパク質": "%.2f" % @user.foods.sum(:protein),
-  "脂質": "%.2f" % @user.foods.sum(:lipd),
-  "炭水化物": "%.2f" % @user.foods.sum(:carbon),
-  "ビタミン": "%.2f" % @user.foods.sum(:vitamin),
-  "ミネラル": "%.2f" % @user.foods.sum(:minerals)}),
-colors: ["red"],xtitle: "五大栄養素", ytitle: "栄養量"
-%>
+<style type="text/css">
+  #stats-protein:after{
+    max-width: <%= [stats[:protein], 7].min / 7 * 100 %>%;
+  }
+  #stats-lipd:after{
+    max-width: <%= [stats[:lipd], 7].min / 7 * 100 %>%;
+  }
+  #stats-carbon:after{
+    max-width: <%= [stats[:carbon], 7].min / 7 * 100 %>%;
+  }
+  #stats-vitamin:after{
+    max-width: <%= [stats[:vitamin], 7].min / 7 * 100 %>%;
+  }
+  #stats-minerals:after{
+    max-width: <%= [stats[:minerals], 7].min / 7 * 100 %>%;
+  }
+</style>
