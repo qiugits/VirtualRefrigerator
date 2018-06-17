@@ -13,10 +13,10 @@
   </head>
 
   <body>
-    <div id="wrapper-container" class="flex-column bg-base">
+    <div id="wrapper-container" class="flex-column bg-c-4">
 
       <!-- Header -->
-      <div id="header" class="flex-row flex-justify-between flex-align-center bg-base">
+      <div id="header" class="flex-row flex-justify-between flex-align-center bg-c-2">
         <div name="left menu" id="menu-left" class="flex-row">
           <%= link_to 'VRegrige', root_path %>
         </div>
@@ -36,16 +36,16 @@
       <% end %>
 
       <!-- Main Content -->
-      <div id="main" class="flex-content-strech flex-column bg-main card-l">
+      <div id="main" class="flex-content-strech flex-column bg-white card-l">
         <%= yield %>
       </div>
 
       <!-- Footer -->
-      <div id="footer" class="flex-row flex-justify-around flex-align-center bg-base">
+      <div id="footer" class="flex-row flex-justify-around flex-align-center bg-c-4">
         <% if logged_in? %>
-          <%= link_to image_tag('icons/foods.svg', class: "footer-icon-btn", id: "icon-foods"), user_foods_path(current_user) %>
-          <%= link_to image_tag('icons/plus.svg', class: "footer-icon-btn", id: "icon-plus"), new_user_food_path(current_user) %>
-          <%= link_to image_tag('icons/stats.svg', class: "footer-icon-btn", id: "icon-stats"), user_path(current_user) %>
+          <%= link_to image_tag("icons/foods#{current_page?(user_foods_path(current_user)) ? '-on' : ''}.svg", class: "footer-icon-btn", id: "icon-foods"), user_foods_path(current_user) %>
+          <%= link_to image_tag("icons/plus#{current_page?(new_user_food_path(current_user)) ? '-on' : ''}.svg", class: "footer-icon-btn", id: "icon-plus"), new_user_food_path(current_user) %>
+          <%= link_to image_tag("icons/stats#{current_page?(user_path(current_user)) ? '-on' : ''}.svg", class: "footer-icon-btn", id: "icon-stats"), user_path(current_user) %>
         <% else %>
           <%#= link_to '今すぐ始める', new_user_path %>
         <% end %>

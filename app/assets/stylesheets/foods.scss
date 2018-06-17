@@ -7,6 +7,11 @@ $footer-h: 72px;
 $header-h: 48px;
 // color
 $water-blue: rgba(224, 255, 253, 0.5);
+$c-1: rgba(48, 66, 105, 1);
+$c-2: rgba(145, 190, 212, 1);
+$c-3: rgba(212, 232, 245, 1);
+$c-4: rgba(245, 245, 255, 1);
+$c-5: rgba(242, 97, 1, 1);
 html, body {
   background: #eee;
   height: 100%;
@@ -79,19 +84,22 @@ a {
 }
 
 .bg-white {
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 }
-.bg-black {
-  background-color: black;
+.bg-c-1 {
+  background-color: $c-1;
 }
-.bg-blue {
-  background-color: #add8eb;
+.bg-c-2 {
+  background-color: $c-2;
 }
-.bg-base {
-  background-color: $water-blue;
+.bg-c-3 {
+  background-color: $c-3;
 }
-.bg-main {
-  background-color: white;
+.bg-c-4 {
+  background-color: $c-4;
+}
+.bg-c-5 {
+  background-color: $c-5;
 }
 
 .pd-8 {
@@ -134,7 +142,8 @@ a {
   margin-bottom: -1.5rem;
 }
 .food-tag {
-  background-color: yellow;
+  color: white;
+  background-color: $c-2;
   border-radius: calc(1.5rem / 2);
   padding-left: 0.3rem;
   padding-right: 0.3rem;
@@ -176,6 +185,9 @@ a {
 #icon-foods, #icon-plus, #icon-stats {
   height: 48px;
 }
+svg#icon-foods>path {
+  fill: white;
+}
 
 // Form
 .form-control {
@@ -209,6 +221,6 @@ a {
 }
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: $c-5;
+  border-color: $c-5;
 }
