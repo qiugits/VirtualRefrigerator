@@ -2,101 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// Food image
-// .food_image{
-// 	position: relative;
-// 	//border: 1px solid #000;
-// 	height: 100px;
-// 	border-radius: 50%;
-// 	//overflow: hidden;
-// 	-webkit-border-radius: 50%;
-// 	-moz-border-radius: 50%;
-// }
-// 
-// .food_image img{
-// 	border-radius: 50%;
-// 	-webkit-border-radius: 50%;
-// 	-moz-border-radius: 50%;
-// }
-// 
-// .food_image p.amount {
-// 	position: absolute;
-// 	color: black;
-// 	top: 100px;
-// 	right: 10px;
-// 	font-size: 150%;
-// }
-// 
-// .food_image p.data{
-// 	position: absolute;
-// 	color: black;
-// 	top: 10px;
-// 	left: 10px;
-// 	font-size: 150%;
-// }
-
-
-// Chihiro
-// * {
-//   margin: 0;
-//   padding: 3px;
-// }
-// .status {
-//   width: 350px;
-//   height: 500px;
-//   border: solid 3px #add8eb ;
-//   float: left;
-// }
-// .status {
-//   position: relative;
-//   top: 10px;
-//   width: 35%;
-//   height: 500px;
-//   border: solid 3px #add8eb ;
-//   border-radius: 10px;
-//   display: flex;
-//   float: left;
-// }
-// .icon {
-//   margin: 20px 20px;
-// }
-// .icon {
-//   margin: 20px 0px;
-// }
-// 
-// .frame {
-//   display: flex;
-//   align-items: flex-start;
-//   justify-content: space-between;
-// }
-// .user {
-//   text-align: center;
-//   position: absolute;
-//   top: 30%;
-//   left: 50%;
-//   -webkit-transform: translateY(-50%) translateX(-50%);
-//   padding: 0px 0px 0px 0px;
-//   line-height: 25px;
-// }
-// 
-// .foods{
-//   flex-grow: 1;
-//   flex-basis: 0;
-//   overflow-y: scroll;
-//   text-align: center;
-// }
-// 
-// li {
-//   border: solid 1px #FFFFFF;
-//   display: inline;
-//   margin: 5px;
-//   float: left;
-//   list-style-type: none;
-// }
-
 //qiugits
 $footer-h: 72px;
 $header-h: 48px;
+// color
+$water-blue: rgba(224, 255, 253, 0.5);
 html, body {
   background: #eee;
   height: 100%;
@@ -129,8 +39,12 @@ a {
 .flex-wrap {
   flex-wrap: wrap;
 }
-#content {
-  //height: calc(100vh - $footer-h - $header-h);
+#main {
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  //box-shadow: 
+  //  inset 4px -4px 10px rgba(84, 186, 229,0.5), 
+  //  inset -4px 4px 10px rgba(255, 249, 96,0.5), 
+  //  inset -4px -4px 10px rgba(0,0,0,0.5);
 }
 .flex-fixed {
   //flex: 0 0 auto;
@@ -172,6 +86,12 @@ a {
 }
 .bg-blue {
   background-color: #add8eb;
+}
+.bg-base {
+  background-color: $water-blue;
+}
+.bg-main {
+  background-color: white;
 }
 
 .pd-8 {
@@ -251,6 +171,7 @@ a {
 }
 .footer-icon-btn {
   display: block;
+  //filter: drop-shadow(0 0 10px rgba(0,0,0,1));
 }
 #icon-foods, #icon-plus, #icon-stats {
   height: 48px;
