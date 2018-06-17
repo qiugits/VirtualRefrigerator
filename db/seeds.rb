@@ -15,7 +15,7 @@ CSV.foreach(Rails.root + 'db/nutr_data_utf8.csv') do |row|
   )
 end
 
-50.times do
+20.times do
   kind = FoodKind.offset(rand(FoodKind.count)).first
   amount = rand(1..5)
   user.foods.create!(

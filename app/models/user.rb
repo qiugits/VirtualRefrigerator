@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :password, presence: true, length: { minimum: 4, maximum: 255 }
 
   def nutri_stats
+    # 栄養素/日分
     {
       protein:  foods.sum(:protein) / 60, 
       lipd:     foods.sum(:lipd) / 70, 
