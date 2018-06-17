@@ -1,0 +1,106 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bar{
+  height: 30px;
+  max-width: 800px;
+  margin: 0 auto 10px auto;
+  line-height: 30px;
+  font-size: 16px;
+  color: white;
+  padding: 0 0 0 10px;
+  position: relative;
+}
+.bar::before{
+  content: '';
+  width: 100%;
+  position: absolute;
+  left: 0;
+  height: 30px;
+  top: 0;
+  z-index: -2;
+  background: #ecf0f1;
+}
+.bar::after{
+  content: '';
+  background: #2ecc71;
+  height: 30px;
+  transition: 0.7s;
+  display: block;
+  width: 100%;
+  -webkit-animation: bar-before 1 1.8s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@-webkit-keyframes bar-before{
+  0%{
+    width: 0px;
+  }
+  100%{
+    width: 100%;
+  }
+}
+
+//.bar1::after{
+ // max-width: 60%;
+//}
+
+
+
+
+///
+
+
+//@import "compass/css3";
+
+.barchart {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 0 auto;
+ // border: solid 5px #ccc;
+  //background-image: linear-gradient( transparent 98%, rgba(#000, .2) 2%);
+  background-size: 10%;
+  background-repeat: repeat;
+}
+[class*=date] {
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  *zoom: 1;
+  *display: inline;
+  position:absolute;
+  bottom: 0;
+  width: 80px;
+  //background: #ccc;
+  -moz-animation: anime1 1s 1 ease;
+  -webkit-animation: anime1 1s 1 ease;
+  animation: anime1 1s 1 ease;
+}
+
+
+
+
+.date1 {background: #0c9; left:10px; title: "たんぱく質"}
+.date2 {background: #09c; left:100px}
+.date3 {background: #0cc; left:190px}
+.date4 {background: #0cc; left:280px}
+.date5 {background: #0cc; left:370px}
+
+
+.title {
+      margin-top:0px;
+      text-align:center;
+      color: #fff;
+    }
+
+@-webkit-keyframes anime1 {
+  0% {height: 0px;}
+}
+@keyframes anime1 {
+  0% {height: 0px;}
+}

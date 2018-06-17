@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <style type="text/css">
+    <% i = 0 %>
+      <% @array.each do |array|%>
+      #hoge<%= i %>:after{
+        max-width: <%= array %>%;
+      }
+      <% i += 1%>
+      <% end %>
+    </style>
+  </head>
+
+<p id="notice"><%= notice %></p>
+<div class="frame">
+  <div class="status">
+    <div class="user">
+      <h1><%= @user.name %><br>の冷蔵庫</h1>
+      <div class="icon">
+        <%= link_to image_tag('closed_refrige.png'), user_path(@user) %>
+      </div>
+      <%= link_to 'Edit User', edit_user_path(@user) %> |
+      <%= link_to 'Back', users_path %>
+    </div>
+  </div>
+
+  <%= link_to 'Open Refrige', user_foods_path(@user) %>
+
+  <div>
+    <% if @user.foods.any? %>
+      <h3>Foods (<%= @user.foods.count %>)</h3>
+      <h4>Stats:
+      </h4>
+      <ul>
+        <li><%= "%.2f" % @user.foods.sum(:protein) %></li>
+        <li><%= "%.2f" % @user.foods.sum(:lipd) %></li>
+        <li><%= "%.2f" % @user.foods.sum(:carbon) %></li>
+        <li><%= "%.2f" % @user.foods.sum(:vitamin) %></li>
+        <li><%= "%.2f" % @user.foods.sum(:minerals) %></li>
+      </ul>
+    <% else %>
+      <h3>Foods (Empty)</h3>
+      <p>
+      Let's store some foods! :)
+      </p>
+    <% end %>
+  </div>
+</div>
+
+<%= column_chart ({
+  "タンパク質": "%.2f" % @user.foods.sum(:protein),
+  "脂質": "%.2f" % @user.foods.sum(:lipd),
+  "炭水化物": "%.2f" % @user.foods.sum(:carbon),
+  "ビタミン": "%.2f" % @user.foods.sum(:vitamin),
+  "ミネラル": "%.2f" % @user.foods.sum(:minerals)}),
+   colors: ["red"],xtitle: "五大栄養素", ytitle: "栄養量",
+   stacked: true
+ %>
+
+<%= column_chart ({
+  "タンパク質": "%.2f" % @array[0],
+  "脂質": "%.2f" % @array[1],
+  "炭水化物": "%.2f" % @array[2],
+  "ビタミン": "%.2f" % @array[3],
+  "ミネラル": "%.2f" % @array[4]}),
+  max: 7
+   %>
+
+
+<div class="graph-cont">
+
+  <% t = 0 %>
+  <% @array.each do |array| %>
+  <%= t %>日分
+
+  <div class="bar" id='hoge<%= t %>'><%= array %>%</div>
+  <% t += 1%>
+  <% end %>
+</div>
+
+
+
+<div class="barchart">
+<% k = 1 %>
+<% @array.each do |array| %>
+
+<div class="date<%= k %>" style="height: <%= array %>%">
+
+  <div class="title"><%= array%>日分</div>
+</div>
+
+<% k += 1 %>
+<% end%>
+
+</div>
