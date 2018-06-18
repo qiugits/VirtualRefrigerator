@@ -19,7 +19,7 @@ end
   kind = FoodKind.offset(rand(FoodKind.count)).first
   amount = rand(1..5)
   user.foods.create!(
-    foodname: kind.kindname,
+    foodname: kind.short_name,
     kind_id: kind.id,
     amount: amount,
     protein: kind.protein * amount,

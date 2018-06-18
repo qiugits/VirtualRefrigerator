@@ -11,7 +11,7 @@
   </div>
 
   <%= form_for(@food) do |f| %>
-    <%= f.label :amount, "取出し後の数量" %>
+    <%= f.label :amount, "取出し後の数量(100g)" %>
     <%= f.text_field :amount, placeholder: @food.amount, class: "form-control" %>
 
     <%= link_to '全て取出す', @food, method: :delete, class: "btn btn-primary" %>

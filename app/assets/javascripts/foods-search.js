@@ -15,7 +15,7 @@ $(document).on('turbolinks:load', function(){
         $('#result').find('label.label-radio').remove();
         $(data).each(function(i, kind){
           $('#result').append(
-            `<div><input type="radio" value="${kind.id}" name="food[kind_id]" id="food_kind_id_${kind.id}"><label for="food_kind_id_${kind.id}" class="label-radio">${kind.kindname}</label></div>`
+            `<div><input type="radio" value="${kind.id}" name="food[kind_id]" id="food_kind_id_${kind.id}" class="form-check-input"><label for="food_kind_id_${kind.id}" class="label-radio">${kind.kindname}</label></div>`
           )
         });
       })

@@ -231,6 +231,10 @@ svg#icon-foods>path {
   border-radius: .25rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
+input[type="radio"] {
+  -webkit-appearance: radio;
+  apperance: radio;
+}
 .btn {
   display: inline-block;
   font-weight: 400;

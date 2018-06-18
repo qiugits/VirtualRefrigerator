@@ -1,19 +1,21 @@
 <% stats = @user.nutri_stats %>
 
-<div class="container">
+<div class="container flex-fixed">
   <h1><%= @user.name %>の冷蔵庫</h1>
   <h3>Foods (<%= @user.foods.count %>)</h3>
+</div>
+<div class="container flex-content-scroll">
   <div class="graph-cont">
     <label for="stats-protein">プロテイン</label>
-    <div class="bar" id="stats-protein"><%= "%.2f" % (stats[:protein]) %>日分</div>
+    <div class="bar" id="stats-protein"><%= "%.1f" % (stats[:protein]) %>日分</div>
     <label for="stats-lipd">脂肪</label>
-    <div class="bar" id="stats-lipd"><%= "%.2f" % (stats[:lipd]) %>日分</div>
+    <div class="bar" id="stats-lipd"><%= "%.1f" % (stats[:lipd]) %>日分</div>
     <label for="stats-carbon">炭水化物</label>
-    <div class="bar" id="stats-carbon"><%= "%.2f" % (stats[:carbon]) %>日分</div>
+    <div class="bar" id="stats-carbon"><%= "%.1f" % (stats[:carbon]) %>日分</div>
     <label for="stats-vitamin">ビタミン</label>
-    <div class="bar" id="stats-vitamin"><%= "%.2f" % (stats[:vitamin]) %>日分</div>
+    <div class="bar" id="stats-vitamin"><%= "%.1f" % (stats[:vitamin]) %>日分</div>
     <label for="stats-minerals">ミネラル</label>
-    <div class="bar" id="stats-minerals"><%= "%.2f" % (stats[:minerals]) %>日分</div>
+    <div class="bar" id="stats-minerals"><%= "%.1f" % (stats[:minerals]) %>日分</div>
   </div>
 </div>
 
