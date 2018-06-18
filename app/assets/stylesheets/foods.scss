@@ -207,6 +207,13 @@ svg#icon-foods>path {
 @include mg-b-em(".form-control");
 @include mg-b-em(".btn");
 @include mg-b-em("#result");
+@mixin reset-apperance($selector) {
+  #{$selector} {
+    -webkit-appearance: none;
+  }
+}
+@include reset-apperance(".form-control");
+@include reset-apperance(".btn");
 .form-control {
   display: block;
   padding: .375rem .75rem;

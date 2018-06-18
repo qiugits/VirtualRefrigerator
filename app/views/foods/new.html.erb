@@ -1,9 +1,10 @@
-<div class="container">
+<div class="container flex-fixed">
   <h1><%= @user.name %>の冷蔵庫</h1>
   <h3>食べ物を入れる</h3>
+</div>
 
 <!-- form -->
-<%= form_for(@food, html: {class: ""}) do |f| %>
+<%= form_for(@food, html: {class: "container flex-content-scroll"}) do |f| %>
   <%= hidden_field_tag :user_id, @user.id %>
   <!-- error message -->
 
@@ -21,6 +22,5 @@
 
   <%= f.submit '冷蔵庫に入れる', class: 'btn btn-primary' %>
 <% end %>
-</div>
 
 <!-- Ajax Script at foods-search.js -->
