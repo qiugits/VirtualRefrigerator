@@ -199,6 +199,14 @@ svg#icon-foods>path {
   height: 10rem;
   overflow-y: scroll;
 }
+@mixin mg-b-em($selector) {
+  #{$selector} {
+    margin-bottom: 0.8rem;
+  }
+}
+@include mg-b-em(".form-control");
+@include mg-b-em(".btn");
+@include mg-b-em("#result");
 .form-control {
   display: block;
   padding: .375rem .75rem;
