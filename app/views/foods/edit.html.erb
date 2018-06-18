@@ -1,19 +1,21 @@
-<h1><%= @user.name %>の冷蔵庫</h1>
+<div class="container">
+  <h1><%= @user.name %>の冷蔵庫</h1>
 
-<h3>Edit Food</h3>
+  <h3>食品を取り出す</h3>
 
-<span><%= @food.foodname %></span>
-<div>
-  <%= image_tag('food_kinds/%04d.jpg' % @food.kind_id) %>
+  <div class="card-s bg-c-3">
+    <span><%= @food.foodname %></span>
+    <%= image_tag('food_kinds/%04d.jpg' % @food.kind_id, class: "food-img") %>
+
+    <span>入れた日時: <%= @food.created_at.strftime("%m月%d日%H時")%></span>
+  </div>
+
+  <%= form_for(@food) do |f| %>
+    <%= f.label :amount, "取出し後の数量" %>
+    <%= f.text_field :amount, placeholder: @food.amount, class: "form-control" %>
+
+    <%= link_to '全て取出す', @food, method: :delete, class: "btn btn-primary" %>
+
+    <%= f.submit "送信", class: "btn btn-primary" %>
+  <% end %>
 </div>
-
-<span><%= @food.created_at.strftime("%m/%d")%></span>
-
-<span><%= link_to '全て取出す', @food, method: :delete %></span>
-
-<%= form_for(@food) do |f| %>
-  <%= f.label :amount %>
-  <%= f.text_field :amount, placeholder: @food.amount, class: "form-control" %>
-
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-<% end %>

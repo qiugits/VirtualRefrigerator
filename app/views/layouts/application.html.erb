@@ -13,10 +13,10 @@
   </head>
 
   <body>
-    <div id="wrapper-container" class="flex-column bg-c-4">
+    <div id="wrapper-container" class="flex-column bg-white">
 
       <!-- Header -->
-      <div id="header" class="flex-row flex-justify-between flex-align-center bg-c-2">
+      <div id="header" class="flex-row flex-justify-between flex-align-center bg-c-1 fg-white">
         <div name="left menu" id="menu-left" class="flex-row">
           <%= link_to 'VRegrige', root_path %>
         </div>
@@ -41,7 +41,7 @@
       </div>
 
       <!-- Footer -->
-      <div id="footer" class="flex-row flex-justify-around flex-align-center bg-c-4">
+      <div id="footer" class="flex-row flex-justify-around flex-align-center bg-white">
         <% if logged_in? %>
           <%= link_to image_tag("icons/foods#{current_page?(user_foods_path(current_user)) ? '-on' : ''}.svg", class: "footer-icon-btn", id: "icon-foods"), user_foods_path(current_user) %>
           <%= link_to image_tag("icons/plus#{current_page?(new_user_food_path(current_user)) ? '-on' : ''}.svg", class: "footer-icon-btn", id: "icon-plus"), new_user_food_path(current_user) %>

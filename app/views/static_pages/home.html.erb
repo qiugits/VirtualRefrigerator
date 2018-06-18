@@ -1,10 +1,12 @@
-<h1>Virtual Refrigerator</h1>
+<div class="container">
+  <h1>Virtual Refrigerator</h1>
 
-<% if logged_in? %>
-  <%= current_user.name %>としてログイン中
-<% else %>
-  <%= link_to '新規登録', signup_path, class: "btn btn-primary" %>
-  <span>すでにアカウントをお持ちの方はこちら：
-  <%= link_to 'ログイン', login_path %>
-  </span>
-<% end %>
+  <% if logged_in? %>
+    <%= current_user.name %>としてログイン中
+  <% else %>
+    <%= link_to '新規登録', signup_path, class: "btn btn-primary" %>
+    <span>すでにアカウントをお持ちの方はこちら：
+      <%= link_to 'ログイン', login_path %>
+    </span>
+  <% end %>
+</div>
