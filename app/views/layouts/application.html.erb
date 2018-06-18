@@ -47,7 +47,7 @@
           <%= link_to image_tag("icons/plus#{current_page?(new_user_food_path(current_user)) ? '-on' : ''}.svg", class: "footer-icon-btn", id: "icon-plus"), new_user_food_path(current_user) %>
           <%= link_to image_tag("icons/stats#{current_page?(user_path(current_user)) ? '-on' : ''}.svg", class: "footer-icon-btn", id: "icon-stats"), user_path(current_user) %>
         <% else %>
-          <%#= link_to '今すぐ始める', new_user_path %>
+          <%= link_to 'Created by tema 冷蔵庫', about_path %>
         <% end %>
       </div>
 

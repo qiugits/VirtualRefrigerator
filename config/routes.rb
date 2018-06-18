@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'static_pages#home'
+  get '/about', to: 'static_pages#about'
   # https://railsguides.jp/routing.html#「浅い」ネスト
   resources :users do
     resources :foods, only: [:index, :new, :search]

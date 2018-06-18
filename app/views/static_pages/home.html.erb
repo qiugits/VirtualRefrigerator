@@ -5,9 +5,7 @@
     <%= current_user.name %>としてログイン中
   <% else %>
     <%= link_to '新規登録', signup_path, class: "btn btn-primary" %>
-    <span>すでにアカウントをお持ちの方はこちら：
-      <%= link_to 'ログイン', login_path %>
-    </span>
+    <%= link_to 'ログイン', login_path, class: "btn btn-primary" %>
   <% end %>
 </div>
 
@@ -22,7 +20,7 @@
   </p>
 
   <p class="card-s bg-c-3">
-  Virtual Refrigerator の 使い方
+  Virtual Refrigeratorの詳しい使い方
   1. [新規登録]ボタンからユーザー登録をします。ユーザー名、当サービス未登録のメールアドレス、新規パスワードを入力します。
   （登録済みの場合は[ログイン]します。この場合、登録済みのメールアドレスとパスワードを入力します。）
   2. ユーザーの冷蔵庫に入っている食べ物の数と五大栄養素の含有値が表示されます。
@@ -32,4 +30,6 @@
   右（棒グラフのマーク）　冷蔵庫に入っている食べ物の数と五大栄養素の含有値が表示されます。
   4. 画面右上のマークを押すとログアウトできます。ログアウトすると1. の画面に戻ります。
   </p>
+
+  <%= link_to '作成メンバー', about_path %>
 </div>
